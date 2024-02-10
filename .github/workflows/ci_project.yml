@@ -13,7 +13,10 @@ jobs:
     needs: checkout
     runs-on: ubuntu-latest
     steps:
-      - name: build backend
-        run: cd backend
-      - name: run backend
-        run: docker build -t backend .
+      - name: check directory
+        run: ls
+    # steps:
+    #   - name: build backend
+    #     run: cd backend
+    #   - name: run backend
+    #     run: docker build -t backend .
