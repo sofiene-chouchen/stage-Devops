@@ -9,13 +9,13 @@ jobs:
   checkout:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout source code
         uses: checkout@v2
   build-Backend:
     needs: checkout
     runs-on: ubuntu-latest
     steps:
-      - name: build
+      - name: build backend
         run: |
           cd /backend
           pwd
