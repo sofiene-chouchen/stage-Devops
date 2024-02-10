@@ -16,4 +16,4 @@ jobs:
       - name: build backend
         run: |
           cd backend
-          pwd
+          docker build -t backend .
