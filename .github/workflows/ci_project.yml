@@ -12,9 +12,7 @@ jobs:
       - name: change directory
         run: cd backend
       - name: Build and push
-        uses: docker/build-push-action@v5
-        with:
-          context: .
+        run: docker build -t backend .
   build_frontend:
     runs-on: ubuntu-latest
     steps:
