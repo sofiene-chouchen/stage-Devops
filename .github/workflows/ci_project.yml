@@ -1,16 +1,14 @@
-name: Github Ci First
-
 on:
   push:
     branches:
       - feature/*
-
+name: Github Ci First
 jobs:
   checkout:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
-        uses: checkout@v2
+        uses: actions/checkout@v2
   build-Backend:
     needs: checkout
     runs-on: ubuntu-latest
