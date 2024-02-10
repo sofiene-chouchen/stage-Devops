@@ -12,16 +12,13 @@ jobs:
       - name: change directory
         run: |
           cd backend
-          ls
-      
-  # build_frontend:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout source code
-  #       uses: actions/checkout@v4
-  #     - name: change directory
-  #       run: cd frontend
-  #     - name: Build and push
-  #       uses: docker/build-push-action@v5
-  #       with:
-  #         context: .
+          docker build -t backend .
+  build_frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+      - name: change directory
+        run: |
+          cd frontend
+          docker build -t frontend .
