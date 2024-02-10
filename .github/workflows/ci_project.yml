@@ -12,7 +12,7 @@ jobs:
       - name: change directory
         run: cd backend
       - name: Build and push
-        run: docker build -t backend Dockerfile
+        run: docker build -t backend -f Dockerfile .
   build_frontend:
     runs-on: ubuntu-latest
     steps:
