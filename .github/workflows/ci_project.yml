@@ -15,5 +15,5 @@ jobs:
     steps:
       - name: build backend
         run: |
-          cd /backend
+          cd backend
           pwd
