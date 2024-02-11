@@ -7,11 +7,14 @@ jobs:
   build_backend:
     runs-on: ubuntu-latest
     name: Build Backend
+    env:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
       - name: build backend
-        run: cd backend && docker build -t backend .
+        run: cd backend && docker build -t $DOCKERHUB_USERNAME/backend .
       - name: docker login
         run: |
-          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
+          docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
