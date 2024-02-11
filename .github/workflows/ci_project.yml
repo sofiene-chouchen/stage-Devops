@@ -18,4 +18,5 @@ jobs:
       - name: docker login
         run: |
           docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
-          ls
+      - name: push to dockerhub backend
+        run: docker push $DOCKERHUB_USERNAME/backend:latest
