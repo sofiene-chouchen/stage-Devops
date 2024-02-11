@@ -10,8 +10,12 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
-      - name: build backend
-        run: cd backend && docker build -t backend .
+      - name: change dir backend
+        run: cd backend 
+        id : change dir
+      - name : build backend
+        run : docker build -t backend .
+        
   build_frontend:
     runs-on: ubuntu-latest
     steps:
