@@ -12,7 +12,6 @@ jobs:
         uses: actions/checkout@v4
       - name: change dir backend
         run: cd backend 
-        id : change dir
       - name : build backend
         run : docker build -t backend .
         
