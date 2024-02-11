@@ -10,15 +10,8 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
-      - name: change dir backend
-        run: cd backend 
-      - name : build backend
-        run : docker build -t backend .
-        
-  build_frontend:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v4
-      - name: build frontend
-        run: cd frontend && docker build -t frontend .
+      - name: build backend
+        run: cd backend && docker build -t backend .
+      - name: docker login
+        run: |
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
