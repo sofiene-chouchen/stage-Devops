@@ -16,11 +16,11 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
       - name: build backend
-        run: cd backend && docker build -t sofiene.azurecr.io/$(git rev-parse --short HEAD) .
+        run: cd backend && docker build -t sofiene.azurecr.io/latest .
   build_frontend:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
       - name: build frontend
-        run: cd frontend && docker build -t sofiene.azurecr.io/$(git rev-parse --short HEAD) .
+        run: cd frontend && docker build -t sofiene.azurecr.io/latest .
