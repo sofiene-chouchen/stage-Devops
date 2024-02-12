@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Build Backend
     env:
-      username: ${{ secrets.ACR_USERNAME }}
-      password: ${{ secrets.ACR_PASSWORD }}
+      username: ${{ secrets.REGISTRY_USERNAME }}
+      password: ${{ secrets.REGISTRY_PASSWORD }}
 
     steps:
       - name: Checkout source code
