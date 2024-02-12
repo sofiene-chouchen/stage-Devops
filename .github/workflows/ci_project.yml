@@ -8,15 +8,20 @@ jobs:
     runs-on: ubuntu-latest
     name: Build Backend
     env:
-      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+      username: ${{ secrets.ACR_USERNAME }}
+      password: ${{ secrets.ACR_PASSWORD }}
+
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
       - name: build backend
-        run: cd backend && docker build -t $DOCKERHUB_USERNAME/backend .
-      - name: docker login
+        run: cd backend && docker build -t $username/backend .
+      - name: azure regestry login
+        uses: azure/docker-login@v1
+        with:
+          login-server: sofiene.azurecr.io
+          username: $username
+          password: $password
+      - name: push docker
         run: |
-          docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
-      - name: push to dockerhub backend
-        run: docker push $DOCKERHUB_USERNAME/backend:latest
+          docker push sofiene.azurecr.io/backend:${{ github.sha }}
