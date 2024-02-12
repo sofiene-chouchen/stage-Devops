@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["dockerhub"]
+  "cSpell.words": ["dockerhub"],
+  "java.compile.nullAnalysis.mode": "disabled"
 }
