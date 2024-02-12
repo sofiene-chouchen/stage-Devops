@@ -2,7 +2,7 @@ on:
   push:
     branches:
       - feature/*
-
+  workflow_dispatch:
 name: Github Ci First
 jobs:
   build_backend:
