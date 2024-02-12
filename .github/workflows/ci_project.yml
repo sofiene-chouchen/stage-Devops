@@ -15,7 +15,7 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
       - name: build backend
-        run: cd backend && docker build -t $username/backend .
+        run: cd backend && docker build -t sofiene.azurecr.io/backend:${{ github.sha }} .
       - name: azure regestry login
         uses: azure/docker-login@v1
         with:
