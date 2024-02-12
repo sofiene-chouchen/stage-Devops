@@ -22,5 +22,4 @@ jobs:
           login-server: sofiene.azurecr.io
           username: $username
           password: $password
-      - name: push
-        run: docker push sofiene.azurecr.io/backend:${{ github.sha }}
+      - run: docker push sofiene.azurecr.io/backend:${{ github.sha }}
