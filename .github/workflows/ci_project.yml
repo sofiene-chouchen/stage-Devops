@@ -14,12 +14,13 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
-      - name: build backend
-        run: cd backend && docker build -t sofiene.azurecr.io/backend:${{ github.sha }} .
       - name: azure regestry login
         uses: azure/docker-login@v1
         with:
           login-server: sofiene.azurecr.io
           username: $username
           password: $password
-      - run: docker push sofiene.azurecr.io/backend:${{ github.sha }}
+      - name: build & push
+        run: |
+          cd backend && docker build -t sofiene.azurecr.io/backend:${{ github.sha }} .
+          docker push sofiene.azurecr.io/backend:${{ github.sha }}
