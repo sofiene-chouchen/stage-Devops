@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - feature/*
+
 name: Github Ci First
 jobs:
   build_backend:
