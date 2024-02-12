@@ -8,20 +8,16 @@ jobs:
   build_backend:
     runs-on: ubuntu-latest
     name: Build Backend
-    env:
-      username: ${{ secrets.REGISTRY_USERNAME }}
-      password: ${{ secrets.REGISTRY_PASSWORD }}
-
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
       - name: backend build
-        run: cd backend && docker build -t sofiene.azurecr.io/backend:${{ github.sha }} .
+        run: cd backend && docker build -t sofiene.azurecr.io/backend:latest .
       - name: azure regestry login
         uses: azure/docker-login@v1
         with:
           login-server: sofiene.azurecr.io
-          username: $username
-          password: $password
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
       - run: |
-          docker push sofiene.azurecr.io/backend:${{ github.sha }}
+          docker push sofiene.azurecr.io/backend:latest
