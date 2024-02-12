@@ -12,7 +12,7 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
       - name: backend build
-        run: cd backend && docker build -t sofiene.azurecr.io/backend:v0.0.1 .
+        run: cd backend && docker build -t sofiene.azurecr.io/$(git rev-parse --short HEAD)
       - name: azure regestry login
         uses: azure/docker-login@v1
         with:
@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}
       - name: push image
         run: |
-          docker push sofiene.azurecr.io/backend:v0.0.1
+          docker push sofiene.azurecr.io/$(git rev-parse --short HEAD)
   frontend:
     runs-on: ubuntu-latest
     steps:
@@ -30,7 +30,7 @@ jobs:
       - name: build frontend
         run: |
           cd frontend 
-          docker build -t sofiene.azurecr.io/frontend:v0.0.1  .
+          docker build -t sofiene.azurecr.io/$(git rev-parse --short HEAD)
       - name: push to rca
         uses: azure/docker-login@v1
         with:
@@ -39,4 +39,4 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}
       - name: push image
         run: |
-          docker push sofiene.azurecr.io/frontend:v0.0.1
+          docker push sofiene.azurecr.io/$(git rev-parse --short HEAD)
