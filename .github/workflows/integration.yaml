@@ -1,5 +1,4 @@
 name: integertion in develope
-
 on:
   push:
     branches:
@@ -8,7 +7,6 @@ on:
     branches:
       - develop
   workflow_dispatch:
-
 jobs:
   build_backend:
     runs-on: ubuntu-latest

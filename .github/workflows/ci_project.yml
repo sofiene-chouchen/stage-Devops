@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - feature/*
+      - master
   workflow_dispatch:
 name: Github Ci First
 jobs:
