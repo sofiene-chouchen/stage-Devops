@@ -1,0 +1,26 @@
+name: integertion in develope
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+  workflow_dispatch:
+
+jobs:
+  build_backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+      - name: build backend
+        run: cd backend && docker build -t sofiene.azurecr.io/latest .
+  build_frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+      - name: build frontend
+        run: cd frontend && docker build -t sofiene.azurecr.io/latest .
