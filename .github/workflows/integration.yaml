@@ -17,7 +17,7 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
       - name: build backend
-        run: docker build -t sofiene.azurecr.io/v0.0.2 .
+        run: docker build -t sofiene.azurecr.io/v0.0.3 .
   build_frontend:
     runs-on: ubuntu-latest
     defaults:
@@ -27,4 +27,4 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
       - name: build frontend
-        run: docker build -t sofiene.azurecr.io/v0.0.2 .
+        run: docker build -t sofiene.azurecr.io/v0.0.3 .
